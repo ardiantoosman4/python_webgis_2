@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section>
+  <h2>Dashboard</h2>
+  <p>Welcome, <strong>{{ user.email }}</strong>!</p>
+  <form method="post" action="{{ url_for('auth.logout_post') }}">
+    <button type="submit">Logout</button>
+  </form>
+</section>
+{% endblock %}

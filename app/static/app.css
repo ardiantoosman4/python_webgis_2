@@ -1,0 +1,185 @@
+/* app/static/css/app.css */
+
+/* --- CSS Reset-ish --- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+
+/* --- Theme --- */
+:root{
+  --bg: #0b0f14;
+  --panel: #121821;
+  --muted: #7b8a9a;
+  --text: #e8eef6;
+  --brand: #3aa0ff;
+  --brand-2: #6fe3ff;
+  --danger: #ff6b6b;
+  --success: #28d17c;
+  --warn: #ffd166;
+  --border: #223147;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --bg: #f6f8fb;
+    --panel: #ffffff;
+    --muted: #526579;
+    --text: #0c1724;
+    --brand: #0f6cf5;
+    --brand-2: #5fb6ff;
+    --border: #e9eef5;
+    --shadow: 0 10px 24px rgba(10,40,80,.08);
+  }
+}
+
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 15% -10%, rgba(58,160,255,.12), transparent 70%),
+              radial-gradient(1200px 600px at 120% 10%, rgba(111,227,255,.12), transparent 70%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* --- Layout --- */
+main{
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+header h1{
+  font-size: 22px;
+  letter-spacing: .2px;
+  margin: 0;
+}
+
+nav{
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+nav a{
+  text-decoration: none;
+  color: var(--text);
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: transform .08s ease, background .2s ease, border-color .2s ease;
+}
+nav a:hover{
+  background: var(--panel);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+/* --- Card / Panel --- */
+section, .card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+/* --- Flash messages --- */
+.flash{
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 10px 0;
+  font-size: 14px;
+  border: 1px solid var(--border);
+}
+.flash.error{ background: rgba(255, 107, 107, .12); border-color: rgba(255,107,107,.35); }
+.flash.success{ background: rgba(40, 209, 124, .12); border-color: rgba(40,209,124,.35); }
+.flash.info{ background: rgba(58, 160, 255, .12); border-color: rgba(58,160,255,.35); }
+
+/* --- Forms --- */
+form{
+  display: grid; gap: 14px;
+  margin-top: 6px;
+}
+label{ font-size: 14px; color: var(--muted); }
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"]{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus{
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(58,160,255,.15);
+}
+
+button, .btn{
+  cursor: pointer;
+  appearance: none;
+  border: 0;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 18px rgba(17, 97, 237, .22);
+}
+button:hover, .btn:hover{ filter: brightness(1.05); transform: translateY(-1px); }
+button:active, .btn:active{ transform: translateY(0); }
+
+/* Secondary button */
+.btn-outline{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+/* --- Auth cards --- */
+.auth-card{
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* --- Dashboard --- */
+.dashboard-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.dashboard-grid > .card{ grid-column: span 12; }
+@media (min-width: 720px){
+  .dashboard-grid > .card{ grid-column: span 6; }
+}
+
+/* --- Tables --- */
+table{
+  width: 100%; border-collapse: collapse; font-size: 14px;
+}
+th, td{
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px; text-align: left;
+}
+th{ color: var(--muted); font-weight: 600; }
+
+/* --- Links --- */
+a{ color: var(--brand); }
+a:hover{ text-decoration: underline; }
+
+/* --- Footer --- */
+footer{ margin-top: 28px; color: var(--muted); font-size: 13px; text-align: center; }

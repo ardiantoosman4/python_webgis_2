@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{% block title %}Flask JWT App{% endblock %}</title>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  <style>
+    main { max-width: 720px; margin: 2rem auto; }
+    .flash { padding: .75rem 1rem; border-radius: .5rem; }
+    .error { background: #ffe5e5; }
+    .success { background: #e6ffed; }
+    .info { background: #e6f0ff; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Flask + SQLAlchemy + JWT</h1>
+      <nav>
+        <a href="{{ url_for('auth.login_get') }}">Login</a>
+        <a href="{{ url_for('auth.register_get') }}">Register</a>
+        <a href="{{ url_for('views.dashboard') }}">Dashboard</a>
+      </nav>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <section>
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </section>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    <footer><small>Starter app</small></footer>
+  </main>
+</body>
+</html>
