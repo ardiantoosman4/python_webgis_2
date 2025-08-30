@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-2">
+  <div class="col-md-8 col-lg-6">
+    <h2 class="text-center mb-4 text-light">Edit Post</h2>
+    <form action="{{ url_for('cms.edit_post_submit', post_id=post.id) }}" method="POST" enctype="multipart/form-data" class="bg-dark p-4 rounded shadow-lg text-light">
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Post Name <span class="text-danger">*</span></label>
+        <input value="{{ post.name }}" type="text" class="form-control bg-light" id="name" name="name" placeholder="Enter post name" required>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+        <select  class="form-select bg-light" id="category" name="category" required>
+          <option value="" disabled selected>-- Select Category --</option>
+          <option value="art" {% if post.category == "art" %}selected{% endif %}>Art</option>
+          <option value="restaurant" {% if post.category == "restaurant" %}selected{% endif %}>Restaurant</option>
+          <option value="live_music" {% if post.category == "live_music" %}selected{% endif %}>Live Music</option>
+        </select>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+        <textarea  class="form-control bg-light" id="description" name="description" rows="3" placeholder="Write something..." required>{{ post.description }}</textarea>
+      </div>
+
+      <!-- Coordinates -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="latitude" class="form-label">Latitude <span class="text-danger">*</span></label>
+          <input value="{{ post.latitude }}" type="number" step="any" class="form-control bg-light" id="latitude" name="latitude" placeholder="e.g. 1.1" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="longitude" class="form-label">Longitude <span class="text-danger">*</span></label>
+          <input value="{{ post.longitude }}" type="number" step="any" class="form-control bg-light" id="longitude" name="longitude" placeholder="e.g. 114.0" required>
+        </div>
+      </div>
+
+      <!-- Photo Upload -->
+      <div class="mb-3">
+        <label for="photo" class="form-label">Upload Photo</label>
+        <input type="file" class="form-control bg-light" id="photo" name="photo" accept="image/jpeg, image/jpg, image/png">
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-success fw-semibold shadow-sm px-4">🚀 Submit Post</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

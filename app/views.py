@@ -20,7 +20,7 @@ def home():
     return redirect(url_for("auth.login_get"))
 
 @views_bp.route("/dashboard", methods=["GET", "POST"])
-@jwt_required(optional=True)
+@jwt_required()
 def dashboard():
     user = get_jwt_identity()  # dict with id & email
 
