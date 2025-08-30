@@ -11,3 +11,6 @@ class Config:
     JWT_COOKIE_CSRF_PROTECT = False
     JWT_COOKIE_SAMESITE = os.getenv("JWT_COOKIE_SAMESITE", "Lax")  # "None" for cross-site (requires HTTPS)
     JWT_ACCESS_COOKIE_NAME = "access_token_cookie"
+    SUPABASE_URL = os.getenv("PROJECT_URL", None)
+    SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY", None)
+    SUPABASE_BUCKET = os.getenv("SUPABASE_BUCKET", "photos")
