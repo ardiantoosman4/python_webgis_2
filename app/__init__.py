@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import Flask
+from flask import Flask, render_template
 from .config import Config
 from .db import init_engine_and_session, remove_scoped_session
 from flask_jwt_extended import JWTManager
@@ -17,6 +17,16 @@ def create_app():
 
     # JWT
     jwt = JWTManager(app)
+
+    # If no JWT is present
+    @jwt.unauthorized_loader
+    def unauthorized_callback(callback):
+        return render_template("unauthorized.html")
+
+    # If JWT is expired
+    @jwt.expired_token_loader
+    def expired_callback(jwt_header, jwt_payload):
+        return render_template("unauthorized.html")
 
     # Register blueprints
     from .auth import auth_bp
