@@ -45,12 +45,12 @@
         <div class="d-flex gap-2">
           <form action="{{ url_for('cms.like_post', post_id=post.id) }}" method="post" style="border:none; box-shadow:none; padding:0; display:inline; min-width:0px;">
             <button type="submit" class="btn btn-outline-success btn-sm fw-semibold px-3 shadow-sm">
-              👍 {{ post.likes }}
+              👍 {{ post.like }}
             </button>
           </form>
           <form action="{{ url_for('cms.dislike_post', post_id=post.id) }}" method="post" style="border:none; box-shadow:none; padding:0; display:inline; min-width:0px;">
             <button type="submit" class="btn btn-outline-danger btn-sm fw-semibold px-3 shadow-sm">
-              👎 {{ post.dislikes }}
+              👎 {{ post.dislike }}
             </button>
           </form>
         </div>

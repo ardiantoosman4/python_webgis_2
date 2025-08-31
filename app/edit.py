@@ -33,13 +33,16 @@ def my_posts_page():
 @cms_bp.route("/other-posts")
 @jwt_required()
 def other_posts_page():
-    user = "demo_user"
-    other_posts = [
-        {"id": 3, "author": "alice", "name": "Alice's first post","category": "art", "description": "Hello world!", "photo": "url", "like": 1, "dislike":1, "coordinate": [43.3, -100.3]},
-# ]
-    ]
-    return render_template("other_posts.html", user=user, other_posts=other_posts)
+    user = get_jwt_identity()  # dict with id & email
+    try:
+        session = get_session()
+        user_id = user
+        other_posts = session.query(Post).filter(Post.author_id != user_id).all()
+        return render_template("other_posts.html", user=user, other_posts=other_posts)
+    except Exception as e:
+        flash("Error fetching posts:", repr(e))
 
+    return render_template("other_posts.html", user=user, other_posts=other_posts)
 
 
 # --- Actions ---
@@ -190,14 +193,30 @@ def delete_post(post_id):
 
 
 @cms_bp.route("/posts/like/<int:post_id>", methods=["POST"])
-@jwt_required(optional=True)
+@jwt_required()
 def like_post(post_id):
-    # In real app → update DB
-    return redirect(url_for("cms.my_posts_page"))
+    user = get_jwt_identity()
+    session = get_session()
+    try:
+        post = session.query(Post).filter_by(id=post_id).first()
+        if post:
+            post.like += 1
+            session.commit()
+    except Exception as e:
+        flash("Error liking post:", repr(e))
+    return redirect(url_for("cms.other_posts_page"))
 
 
 @cms_bp.route("/posts/dislike/<int:post_id>", methods=["POST"])
-@jwt_required(optional=True)
+@jwt_required()
 def dislike_post(post_id):
-    # In real app → update DB
-    return redirect(url_for("cms.my_posts_page"))
+    user = get_jwt_identity()
+    session = get_session()
+    try:
+        post = session.query(Post).filter_by(id=post_id).first()
+        if post:
+            post.dislike += 1
+            session.commit()
+    except Exception as e:
+        flash("Error disliking post:", repr(e))
+    return redirect(url_for("cms.other_posts_page"))

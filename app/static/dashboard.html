@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_b15fa07130a65c5b0dee0b13023382d0 {
+                #map_1168b1821a9c602f161348dcefd59c3c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,23 +50,25 @@
             </script>
 
         
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_b15fa07130a65c5b0dee0b13023382d0" ></div>
+            <div class="folium-map" id="map_1168b1821a9c602f161348dcefd59c3c" ></div>
         
 </body>
 <script>
     
     
-            var map_b15fa07130a65c5b0dee0b13023382d0 = L.map(
-                "map_b15fa07130a65c5b0dee0b13023382d0",
+            var map_1168b1821a9c602f161348dcefd59c3c = L.map(
+                "map_1168b1821a9c602f161348dcefd59c3c",
                 {
-                    center: [43.0, -100.0],
+                    center: [-6.2, 106.8],
                     crs: L.CRS.EPSG3857,
                     ...{
-  "zoom": 5,
+  "zoom": 12,
   "zoomControl": true,
   "preferCanvas": false,
 }
@@ -78,7 +80,7 @@
 
         
     
-            var tile_layer_277462d68f94ca4edaa68ead248af939 = L.tileLayer(
+            var tile_layer_a8b7b8ca796ef9dfec698aefb06ce08a = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -95,7 +97,166 @@
             );
         
     
-            tile_layer_277462d68f94ca4edaa68ead248af939.addTo(map_b15fa07130a65c5b0dee0b13023382d0);
+            tile_layer_a8b7b8ca796ef9dfec698aefb06ce08a.addTo(map_1168b1821a9c602f161348dcefd59c3c);
         
+    
+            var marker_530bb07e66b511874cee6c8e1157499e = L.marker(
+                [-6.193899, 106.823158],
+                {
+}
+            ).addTo(map_1168b1821a9c602f161348dcefd59c3c);
+        
+    
+            var beautify_icon_7e922966da4a5335212583db4cd96143 = new L.BeautifyIcon.icon(
+                {
+  "icon": "cutlery",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#000",
+  "textColor": "white",
+  "backgroundColor": "red",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_530bb07e66b511874cee6c8e1157499e.setIcon(beautify_icon_7e922966da4a5335212583db4cd96143);
+        
+    
+        var popup_17bc45837aedf09d1927ef81cb588c76 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16e21b8bdc9fc3e77276a1b7910380f7 = $(`<div id="html_16e21b8bdc9fc3e77276a1b7910380f7" style="width: 100.0%; height: 100.0%;">             <div class="card" style="width: 320px;">                 <div class="d-flex flex-column">                     <img src="https://dbaaydtyurcapuxlpzcq.supabase.co/storage/v1/object/public/photos/be94f62e-e010-4680-a9d1-94c60d5219f6_resto_1.png?" class="img-fluid rounded-start" alt="Sana Sini Restaurant">                     <div class="card-body p-2">                         <h6 class="card-title mb-1">Sana Sini Restaurant</h6>                         <p class="card-text mb-1"><small class="text-muted">restaurant</small></p>                         <p class="card-text" id="desc-1">Drawing inspiration from the Indonesian phrase 'Sana -Sini', which means 'here and there', Pullman Jakarta Indonesia offers you an unrivaled culinary excursion into the different corners of Europe and Asia through 4 individually designed spacious counters. Casually eat your way through different continents and hop across live cooking stations, as the restaurant serves breakfast, lunch and dinner buffet as well as à la carte, surrounded by contemporary décor.</p>                         <p class="mb-0">👍 1 | 👎 1</p>                     </div>                 </div>             </div>             </div>`)[0];
+                popup_17bc45837aedf09d1927ef81cb588c76.setContent(html_16e21b8bdc9fc3e77276a1b7910380f7);
+            
+        
+
+        marker_530bb07e66b511874cee6c8e1157499e.bindPopup(popup_17bc45837aedf09d1927ef81cb588c76)
+        ;
+
+        
+    
+    
+            marker_530bb07e66b511874cee6c8e1157499e.bindTooltip(
+                `<div>
+                     Sana Sini Restaurant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_530bb07e66b511874cee6c8e1157499e.setIcon(beautify_icon_7e922966da4a5335212583db4cd96143);
+            
+    
+            var marker_bb3c1f939e18b4aa0ff92374183604d5 = L.marker(
+                [-6.135701, 106.812451],
+                {
+}
+            ).addTo(map_1168b1821a9c602f161348dcefd59c3c);
+        
+    
+            var beautify_icon_49d394a027a3bddfc00d44e98c31502a = new L.BeautifyIcon.icon(
+                {
+  "icon": "paint-brush",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#000",
+  "textColor": "white",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_bb3c1f939e18b4aa0ff92374183604d5.setIcon(beautify_icon_49d394a027a3bddfc00d44e98c31502a);
+        
+    
+        var popup_9739dcb7007bf6c68243e778eace970c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa6540effc1876aab54cb197de55e524 = $(`<div id="html_fa6540effc1876aab54cb197de55e524" style="width: 100.0%; height: 100.0%;">             <div class="card" style="width: 320px;">                 <div class="d-flex flex-column">                     <img src="https://dbaaydtyurcapuxlpzcq.supabase.co/storage/v1/object/public/photos/6e9303a0-fdd7-4537-b737-7b4d3c651d88_art1.png?" class="img-fluid rounded-start" alt="Magic Art Museum">                     <div class="card-body p-2">                         <h6 class="card-title mb-1">Magic Art Museum</h6>                         <p class="card-text mb-1"><small class="text-muted">art</small></p>                         <p class="card-text" id="desc-3">Magic Art3D Museum Kota tua Jakarta adalah museum yang menampilkan lukisan 3D Terletak di Jl. Kali Besar Timur No. 9 Jakarta Barat. Museum ini didirikan oleh perusahaan Korea pada tanggal 7 Desember 2018.</p>                         <p class="mb-0">👍 0 | 👎 0</p>                     </div>                 </div>             </div>             </div>`)[0];
+                popup_9739dcb7007bf6c68243e778eace970c.setContent(html_fa6540effc1876aab54cb197de55e524);
+            
+        
+
+        marker_bb3c1f939e18b4aa0ff92374183604d5.bindPopup(popup_9739dcb7007bf6c68243e778eace970c)
+        ;
+
+        
+    
+    
+            marker_bb3c1f939e18b4aa0ff92374183604d5.bindTooltip(
+                `<div>
+                     Magic Art Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bb3c1f939e18b4aa0ff92374183604d5.setIcon(beautify_icon_49d394a027a3bddfc00d44e98c31502a);
+            
+    
+            var marker_a5b0453bac84bfd8e669119743ed4866 = L.marker(
+                [-6.15324200865087, 106.842896423273],
+                {
+}
+            ).addTo(map_1168b1821a9c602f161348dcefd59c3c);
+        
+    
+            var beautify_icon_092df2096588e0a63b87cbde6ca312d9 = new L.BeautifyIcon.icon(
+                {
+  "icon": "music",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#000",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_a5b0453bac84bfd8e669119743ed4866.setIcon(beautify_icon_092df2096588e0a63b87cbde6ca312d9);
+        
+    
+        var popup_86165af8163482161b42519d5e55b126 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6ed033cce6920da35b6b27dc90ff729 = $(`<div id="html_f6ed033cce6920da35b6b27dc90ff729" style="width: 100.0%; height: 100.0%;">             <div class="card" style="width: 320px;">                 <div class="d-flex flex-column">                     <img src="https://dbaaydtyurcapuxlpzcq.supabase.co/storage/v1/object/public/photos/ab33cac6-c9fc-4e51-a9ae-6330a631f0fd_music1.png?" class="img-fluid rounded-start" alt="Aula Simfonia">                     <div class="card-body p-2">                         <h6 class="card-title mb-1">Aula Simfonia</h6>                         <p class="card-text mb-1"><small class="text-muted">live_music</small></p>                         <p class="card-text" id="desc-4">The "AULA SIMFONIA JAKARTA", with a seating capacity of 1,400 seats, including choir and orchestra seats, sited in the area of Kemayoran, Center of Jakarta, this fine concert hall is able to reach a good acoustic level.</p>                         <p class="mb-0">👍 0 | 👎 0</p>                     </div>                 </div>             </div>             </div>`)[0];
+                popup_86165af8163482161b42519d5e55b126.setContent(html_f6ed033cce6920da35b6b27dc90ff729);
+            
+        
+
+        marker_a5b0453bac84bfd8e669119743ed4866.bindPopup(popup_86165af8163482161b42519d5e55b126)
+        ;
+
+        
+    
+    
+            marker_a5b0453bac84bfd8e669119743ed4866.bindTooltip(
+                `<div>
+                     Aula Simfonia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a5b0453bac84bfd8e669119743ed4866.setIcon(beautify_icon_092df2096588e0a63b87cbde6ca312d9);
+            
 </script>
 </html>
